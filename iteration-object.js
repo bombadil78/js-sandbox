@@ -1,25 +1,22 @@
 let obj = {
-    a: "x",
-    b: "y",
-    c: "z"
+    a: "A",
+    b: "B"
 };
+let obj2 = Object.create(obj);
+obj2.c = "C";
 
-let arr = [ 99, 98, 97 ];
-
-// traditional
-// for..in iterates over keys
-for (let key in obj) {
-    console.log(obj[key]);
+// for..in iterates over full prototype chain's properties
+for (let i in obj) {
+    console.log(`(1): ${i}`);
 }
 
-// for..of iterates over values for
-for (let val of arr) {
-    console.log(val);
+for (let i in obj2) {
+    console.log(`(2): ${i}`);
 }
 
-// ... whereas for..in iterates over keys
-for (let arrKey in arr) {
-    console.log(arrKey);
+// ... use hasOwnProperty() to filter
+for (let i in obj) {
+    if (obj.hasOwnProperty(i)) {
+        console.log(`(3): ${i}`);
+    }
 }
-
-// todo: prototype & hasOwnProperty()
