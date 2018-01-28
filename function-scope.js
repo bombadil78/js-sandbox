@@ -1,7 +1,7 @@
 function foo(z) {
     var x = 100;
     let y = 200;
-    console.log(`x=${x} and y=${y} and z=${z}`);
+    return `x=${x} and y=${y} and z=${z}`;
 }
 
 var x = 1;
@@ -13,7 +13,7 @@ if (true) {
 }
 
 // let variables have block scope, var variable have not
-console.log(`x=${x} and y=${y}`);
+console.log(`(1): x=${x} and y=${y}`);
 
 // both var variables and let variables have function scope
-foo(300);
+console.log(`(2): ${foo(300)}`);
