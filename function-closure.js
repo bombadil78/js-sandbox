@@ -7,7 +7,9 @@ function x() {
 console.log(`(1): ${x()()}`);
 
 // startAt is a higher-order function that returns a closure
-// a free variable is one that is defined outside of a nested function
+//
+// a free variable is one that is defined outside of a nested function,
+// e.g. parameter of an enclosing function
 function startAt(x) {
     let func = function(increment) {
         return x + increment;
@@ -15,7 +17,9 @@ function startAt(x) {
     return func;
 }
 
-// once the free variables are bound, function expression turns into a closure
+// by calling the generating function the free variables get bound
+// and the function expression turns into a closure
+//
 // both fromOne and fromTen are closures with a different context
 let fromOne = startAt(1);
 let fromTen = startAt(10);
@@ -25,6 +29,7 @@ console.log(`(2): ${fromOne(1)}`);
 console.log(`(2): ${fromOne(100)}`);
 console.log(`(2): ${fromTen(1)}`);
 
+// closures can be pure or impure in js
 function startAtImpure(x) {
     return function(increment) {
         return zero++ + x + increment;
@@ -35,4 +40,3 @@ let zero = 0;
 let fromOneImpure = startAtImpure(1);
 console.log(`(3): ${fromOneImpure(1)}`);
 console.log(`(3): ${fromOneImpure(1)}`);
-
