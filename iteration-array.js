@@ -10,15 +10,25 @@ for (let i = 0; i < arr.length; i++) {
         sum += value;
     }
 }
-console.log(sum);
+console.log(`(1): ${sum}`);
 
-// functional (bad, not pure)
+// functional (not pure)
 let sum2 = 0;
 arr
     .filter(x => x <= 3)
     .forEach(x => sum2 += x);
-console.log(sum2);
+console.log(`(2): ${sum2}`);
 
-// functional
+// functional (pure)
 const sum3 = arr.filter(x => x <= 3).reduce((acc, val) => acc + val, 0);
-console.log(sum3);
+console.log(`(3): ${sum3}`);
+
+// for..of iterates over values on iterables only
+for (let i of arr) {
+    console.log(`(4): ${i}`);
+}
+
+// ... whereas for..in iterates over keys on any object
+for (let i in arr) {
+    console.log(`(5): ${i}`);
+}
