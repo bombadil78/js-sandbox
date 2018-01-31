@@ -17,3 +17,7 @@ console.log(`(1): x=${x} and y=${y}`);
 
 // both var variables and let variables have function scope
 console.log(`(2): ${foo(300)}`);
+
+let x = function() {
+  console.log();
+};
