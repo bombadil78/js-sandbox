@@ -24,3 +24,7 @@ console.log(`(3): ${sayHello()}`);
 // bind binds its argument to this and returns the bound function
 let sayHelloBoundToObj = sayHello.bind(obj);
 console.log(`(4): ${sayHelloBoundToObj()}`);
+
+// other built-ins
+console.log(`(5): ${eval("console.log('hi');")}`);
+console.log(`(5): ${parseInt("100", 10)}`);
